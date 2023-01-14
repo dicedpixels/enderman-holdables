@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "enderman-holdables",
+  "version": "${version}",
+  "name": "Enderman Holdables",
+  "description": "Configure what Endermen can pick up.",
+  "authors": [
+    "dicedpixels"
+  ],
+  "contact": {
+    "homepage": "https://github.com/dicedpixels",
+    "sources": "https://github.com/dicedpixels/enderman-holdables"
+  },
+  "license": "MIT",
+  "icon": "assets/enderman-holdables/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.dicedpixels.endermanholdables.EndermanHoldables"
+    ],
+    "modmenu": [
+      "com.dicedpixels.endermanholdables.ModMenu"
+    ]
+  },
+  "mixins": [
+    "enderman-holdables.mixins.json"
+  ],
+  "accessWidener": "enderman-holdables.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  }
+}
