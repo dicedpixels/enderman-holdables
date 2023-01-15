@@ -5,7 +5,6 @@
   "enderman-holdables.config.blocks": "Blocks",
   "enderman-holdables.config.yes": "Yes",
   "enderman-holdables.config.no": "No",
-  "enderman-holdables.config.all-yes": "Toggle All Yes",
-  "enderman-holdables.config.all-no": "Toggle All No",
+  "enderman-holdables.config.toggle-all": "Toggle All",
   "enderman-holdables.config.done": "Done"
 }

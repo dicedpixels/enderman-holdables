@@ -25,10 +25,6 @@ public class HoldableBlocksConfigScreen extends Screen {
         this.renderBackground(matrices);
         this.blockListWidget.render(matrices, mouseX, mouseY, delta);
         drawCenteredText(matrices, this.textRenderer, this.title.copy().formatted(Formatting.BOLD), this.width / 2, 12, 16777215);
-        Text buttonText = !this.allAllowed
-                ? Text.translatable("enderman-holdables.config.all-yes").copy().formatted(Formatting.GREEN)
-                : Text.translatable("enderman-holdables.config.all-no").copy().formatted(Formatting.RED);
-        this.resetButton.setMessage(buttonText);
         super.render(matrices, mouseX, mouseY, delta);
     }
 
@@ -40,9 +36,10 @@ public class HoldableBlocksConfigScreen extends Screen {
 
     @Override
     protected void init() {
+        this.allAllowed = EndermanHoldables.getAllHoldablelocks().stream().allMatch(ConfigHandler::getValue);
         this.blockListWidget = new BlockListWidget(this.client, this);
         this.addSelectableChild(this.blockListWidget);
-        this.resetButton = this.addDrawableChild(ButtonWidget.builder(Text.of(""), (button) -> {
+        this.resetButton = this.addDrawableChild(ButtonWidget.builder(Text.translatable("enderman-holdables.config.toggle-all"), (button) -> {
             if (!this.allAllowed) {
                 EndermanHoldables.getAllHoldablelocks().forEach(ConfigHandler::setValue);
                 this.allAllowed = true;
